@@ -103,6 +103,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CCustomer.cs" />
+    <Compile Include="Models\CCustomerFactory.cs" />
     <Compile Include="Models\CLotto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -17,6 +17,19 @@ namespace prjASPNET.Controllers
             return View();
         }
 
+        public string testing()
+        {
+            CCustomer x = new CCustomer();
+            x.fName = "Lin Chen";
+            x.fPhone = "0980800553";
+            x.fEmail = "lin@gmail.com";
+            x.fAddress = "Taipei";
+            x.fPassword = "123456";
+
+            (new CCustomerFactory()).create(x);
+            return "新增資料成功";
+        }
+
         public ActionResult bindingCustomerById(int? id)
         {
             CCustomer x = null;
