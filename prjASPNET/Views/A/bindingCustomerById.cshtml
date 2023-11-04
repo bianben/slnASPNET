@@ -1,0 +1,25 @@
+﻿@model prjASPNET.Models.CCustomer
+@{
+    string photo = "OIP.jpg";
+    if (Model != null)
+    {
+        photo = Model.fId + ".jpg";
+    }
+    ViewBag.Title = "bindingCustomerById";
+}
+
+<h2>繫節客戶資料</h2>
+<img src="~/Images/@photo" width="450" height="280" />
+@{
+    if (Model == null)
+    {
+        <p><h3>目前沒有資料</h3></p>
+    }
+
+    else
+    {
+        <p><h3>@Model.fName</h3></p>
+        <p>@Model.fPhone</p>
+        <p>@Model.fEmail</p>
+    }
+}

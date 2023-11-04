@@ -1,0 +1,24 @@
+﻿@{
+    string photo = "OIP.jpg";
+    if (ViewBag.KK != null)
+    {
+        photo = ViewBag.KK.fId + ".jpg";
+    }
+    ViewBag.Title = "displayCustomerById";
+}
+
+<h2>客戶資料查詢</h2>
+<img src="~/Images/@photo" width="450" height="280" />
+@{
+    if (ViewBag.KK == null)
+    {
+        <p><h3>目前沒有資料</h3></p>
+    }
+
+    else 
+    {
+        <p><h3>@ViewBag.KK.fName</h3></p>
+        <p>@ViewBag.KK.fPhone</p>
+        <p>@ViewBag.KK.fEmail</p>
+    }
+}
