@@ -17,6 +17,90 @@ namespace prjASPNET.Controllers
             return View();
         }
 
+        public string testing()
+        {
+            CCustomer x = new CCustomer();
+            x.fName = "Lin Chen";
+            x.fPhone = "0980800553";
+            x.fEmail = "lin@gmail.com";
+            x.fAddress = "Taipei";
+            x.fPassword = "123456";
+
+            (new CCustomerFactory()).create(x);
+            return "新增資料成功";
+        }
+
+        public ActionResult bindingCustomerById(int? id)
+        {
+            CCustomer x = null;
+            if (id != null)
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "Data Source=.;Initial Catalog=dbDemo;Integrated Security=True";
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM tCustomer WHERE fId=" + id.ToString(), conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                //if (dr.Read())
+                //{
+                //    ViewBag.II = dr["fId"].ToString();
+                //    ViewBag.KK = dr["fName"].ToString();
+                //    ViewBag.PP = dr["fPhone"].ToString();
+                //    ViewBag.MM = dr["fEmail"].ToString();
+                //}
+
+                if (dr.Read())
+                {
+                    x = new CCustomer()
+                    {
+                        fId = (int)dr["fId"],
+                        fName = dr["fName"].ToString(),
+                        fPhone = dr["fPhone"].ToString(),
+                        fEmail = dr["fEmail"].ToString(),
+                    };
+
+                }
+                conn.Close();
+            }
+            return View(x);
+        }
+
+        public ActionResult displayCustomerById(int? id)
+        {
+            if (id != null)
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "Data Source=.;Initial Catalog=dbDemo;Integrated Security=True";
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM tCustomer WHERE fId=" + id.ToString(), conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                //if (dr.Read())
+                //{
+                //    ViewBag.II = dr["fId"].ToString();
+                //    ViewBag.KK = dr["fName"].ToString();
+                //    ViewBag.PP = dr["fPhone"].ToString();
+                //    ViewBag.MM = dr["fEmail"].ToString();
+                //}
+
+                if (dr.Read())
+                {
+                    CCustomer x = new CCustomer()
+                    {
+                        fId = (int)dr["fId"],
+                        fName = dr["fName"].ToString(),
+                        fPhone = dr["fPhone"].ToString(),
+                        fEmail = dr["fEmail"].ToString(),
+                    };
+                    ViewBag.KK=x;
+                }
+                conn.Close();
+            }
+            return View();
+        }
+
         public ActionResult bindingCustomerById(int? id)
         {
             CCustomer x = null;
