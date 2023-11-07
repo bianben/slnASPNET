@@ -154,5 +154,18 @@ namespace prjASPNET.Models
                 cmd.Parameters.AddRange(paras.ToArray());
             cmd.ExecuteNonQuery();
         }
+
+        public List<CCustomer> queryByKeyword(string keyword)
+        {
+            string sql = "SELECT * FROM tCustomer WHERE ";
+            sql += " fName LIKE @K_KEYWORD ";
+            sql += " OR fPHONE LIKE @K_KEYWORD ";
+            sql += " OR fEMAIL LIKE @K_KEYWORD ";
+            sql += " OR fADDRESS LIKE @K_KEYWORD";
+
+            List<SqlParameter> paras = new List<SqlParameter>();
+            paras.Add(new SqlParameter("K_KEYWORD", "%" + (object)keyword + "%"));
+            return queryBySql(sql, paras);
+        }
     }
 }

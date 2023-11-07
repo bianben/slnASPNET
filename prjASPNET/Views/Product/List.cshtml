@@ -1,0 +1,64 @@
+﻿@model IEnumerable<prjASPNET.tProduct>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("新建資料", "Create")
+</p>
+<form method="post">
+    關鍵字<input type="text" name="txtKeyword" /><input type="submit" value="查詢" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@{ 
+    int count = 0;
+    foreach (var item in Model)
+    {
+        count++;
+    <tr>
+        <td>
+            @count
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fPrice)
+        </td>
+        <td>
+            @Html.ActionLink("修改", "Edit", "Product", new { id = item.fId }, null) |
+            @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId }, null) |
+        </td>
+    </tr>
+        }
+    }
+</table>

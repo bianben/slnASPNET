@@ -10,6 +10,18 @@ namespace prjASPNET.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
+
+        public ActionResult List()
+        {
+            string keyword = Request.Form["txtKeyword"];
+            List<CCustomer> datas = null;
+            if (string.IsNullOrEmpty(keyword))
+                datas = (new CCustomerFactory()).queryAll();
+            else
+                datas = (new CCustomerFactory()).queryByKeyword(keyword);
+            return View(datas);
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -37,12 +49,7 @@ namespace prjASPNET.Controllers
                 (new CCustomerFactory()).delete(id);
             return RedirectToAction("List");
         }
-
-        public ActionResult List()
-        {
-            List<CCustomer> datas = (new CCustomerFactory()).queryAll();
-            return View(datas);
-        }
+        
         public ActionResult Create()
         {
             return View();
