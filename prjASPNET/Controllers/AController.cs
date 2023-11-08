@@ -16,6 +16,24 @@ namespace prjASPNET.Controllers
         {
             return View();
         }
+        static int a=0;
+        public ActionResult DemoCount()
+        {
+            a++;
+            ViewBag.Count = a;
+            return View();
+        }
+        public ActionResult DemoCountSession()
+        {
+            int count = 0;
+            if (Session["COUNT"] != null)
+                count = (int)Session["COUNT"];
+            count++;
+            Session["COUNT"] = count;
+            ViewBag.COUNT = count;
+
+            return View();
+        }
 
         public ActionResult demoFrom()
         {

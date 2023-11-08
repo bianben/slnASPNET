@@ -64,6 +64,12 @@ namespace prjASPNET.Controllers
             var item = (from t in db.tProduct
                         where t.fId == p.fId
                         select t).FirstOrDefault();
+            if(p.photo != null)
+            {
+                string photoName=Guid.NewGuid().ToString()+".jpg";
+                item.fImagePath = photoName;
+                p.photo.SaveAs(Server.MapPath("../../Images/" + photoName));
+            }
             if(item!= null)
             {
                 item.fId = p.fId;

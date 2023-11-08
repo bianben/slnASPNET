@@ -7,13 +7,9 @@
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("新建資料", "Create", "Product", new {@class="btn btn-primary"})
+    @Html.ActionLink("Create New", "Create")
 </p>
-<form method="post">
-    關鍵字<input type="text" name="txtKeyword" /><input type="submit" value="查詢" />
-</form>
-
-<table class="table table-hover">
+<table class="table">
     <tr>
         <th>
             #
@@ -30,12 +26,10 @@
         <th>
             @Html.DisplayNameFor(model => model.fPrice)
         </th>
-        <th>編輯</th>
+        <th></th>
     </tr>
 
-@{ 
-    int count = 0;
-    foreach (var item in Model)
+@{ int count = 0; foreach (var item in Model)
     {
         count++;
     <tr>
@@ -43,6 +37,7 @@
             @count
         </td>
         <td>
+            <img src="~/Images/@item.fImagePath" />
             @Html.DisplayFor(modelItem => item.fName)
         </td>
         <td>
@@ -51,14 +46,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.fCost)
         </td>
-        <td>
+        <td>    `
             @Html.DisplayFor(modelItem => item.fPrice)
         </td>
         <td>
-            @Html.ActionLink("修改", "Edit", "Product", new { id = item.fId }, new{@class="btn btn-success"})
-            @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId }, new { @class = "btn btn-danger" })
+           
+            @Html.ActionLink("加入購物車", "AddToCart", new {  id=item.fId})
         </td>
     </tr>
-        }
+         }
     }
 </table>

@@ -11,16 +11,14 @@ namespace prjASPNET
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
-    public partial class tProduct
+    
+    public partial class tShoppingCart
     {
         public int fId { get; set; }
-        public string fName { get; set; }
-        public Nullable<int> fQty { get; set; }
-        public Nullable<decimal> fCost { get; set; }
+        public string fDate { get; set; }
+        public Nullable<int> fCustomerId { get; set; }
+        public Nullable<int> fProductId { get; set; }
+        public Nullable<int> fCount { get; set; }
         public Nullable<decimal> fPrice { get; set; }
-        public string fImagePath { get; set; }
-        public HttpPostedFileBase photo { get; set; }
     }
 }
