@@ -56,7 +56,8 @@
         </td>
         <td>
             @Html.ActionLink("修改", "Edit", "Product", new { id = item.fId }, new{@class="btn btn-success"})
-            @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId },
+           new { onclick = "return confirm('確定要刪除嗎?')", @class = "btn btn-outline-danger" })
         </td>
     </tr>
         }

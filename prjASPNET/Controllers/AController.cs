@@ -16,14 +16,15 @@ namespace prjASPNET.Controllers
         {
             return View();
         }
-        static int a=0;
+        static int a = 0;
+
         public ActionResult DemoCount()
         {
             a++;
             ViewBag.Count = a;
             return View();
         }
-        public ActionResult DemoCountSession()
+        public ActionResult DemoCountBySession()
         {
             int count = 0;
             if (Session["COUNT"] != null)
@@ -32,6 +33,21 @@ namespace prjASPNET.Controllers
             Session["COUNT"] = count;
             ViewBag.COUNT = count;
 
+            return View();
+        }
+        public ActionResult DemoCountByCookies()
+        {
+            int count = 0;
+            HttpCookie cookie = Request.Cookies["Count"];
+            if (cookie != null)
+                count = Convert.ToInt32(cookie.Value);
+            count++;
+            cookie = new HttpCookie("Count");
+            cookie.Value = count.ToString();
+            cookie.Expires= DateTime.Now.AddSeconds(5);
+            Response.Cookies.Add(cookie);
+
+            ViewBag.COUNT = count;
             return View();
         }
 

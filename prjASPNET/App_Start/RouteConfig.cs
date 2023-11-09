@@ -13,11 +13,11 @@ namespace prjASPNET
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "John",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Product", action = "List", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "John",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Product", action = "List", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",
