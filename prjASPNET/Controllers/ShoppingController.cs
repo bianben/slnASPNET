@@ -100,7 +100,7 @@ namespace prjASPNET.Controllers
         #endregion AddToSession
         public ActionResult CartView()
         {
-            List<CShoppingCartItem> cart = (List<CShoppingCartItem>)Session[CDictionary.SK_PURCHASED_PRODUCTS_LIST];
+            List<CShoppingCartItem> cart = Session[CDictionary.SK_PURCHASED_PRODUCTS_LIST] as List<CShoppingCartItem>;
             return View(cart);
         }
     }

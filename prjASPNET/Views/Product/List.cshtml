@@ -7,7 +7,7 @@
 <h2>List</h2>
 
 <p>
-    @Html.ActionLink("新建資料", "Create", "Product", new {@class="btn btn-primary"})
+    @Html.ActionLink("新建資料", "Create", "Product", new { @class = "btn btn-primary" })
 </p>
 <form method="post">
     關鍵字<input type="text" name="txtKeyword" /><input type="submit" value="查詢" />
@@ -33,33 +33,33 @@
         <th>編輯</th>
     </tr>
 
-@{ 
-    int count = 0;
-    foreach (var item in Model)
-    {
-        count++;
-    <tr>
-        <td>
-            @count
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fQty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fPrice)
-        </td>
-        <td>
-            @Html.ActionLink("修改", "Edit", "Product", new { id = item.fId }, new{@class="btn btn-success"})
-            @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId },
-           new { onclick = "return confirm('確定要刪除嗎?')", @class = "btn btn-outline-danger" })
-        </td>
-    </tr>
+    @{
+        int count = 0;
+        foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("修改", "Edit", "Product", new { id = item.fId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("刪除", "Delete", "Product", new { id = item.fId },
+                   new { onclick = "return confirm('確定要刪除嗎?')", @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
         }
     }
 </table>
