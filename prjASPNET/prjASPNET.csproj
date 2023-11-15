@@ -221,7 +221,7 @@
     <Content Include="Views\A\displayCustomerById.cshtml" />
     <Content Include="Views\A\bindingCustomerById.cshtml" />
     <Content Include="Views\Customer\List.cshtml" />
-    <Content Include="Views\A\demoFrom.cshtml" />
+    <Content Include="Views\A\demoForm.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
@@ -245,6 +245,7 @@
     <Content Include="Views\Shopping\CartView.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\A\demoUpload.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

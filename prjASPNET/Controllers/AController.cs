@@ -51,7 +51,13 @@ namespace prjASPNET.Controllers
             return View();
         }
 
-        public ActionResult demoFrom()
+        public ActionResult demoUpload(HttpPostedFile photo)
+        {
+            photo.SaveAs(@"C:\iSpan\hello.jpg");
+            return View();
+        }
+
+        public ActionResult demoForm()
         {
             ViewBag.ANS = "X=?";
             if (!string.IsNullOrEmpty(Request.Form["txtA"]))
