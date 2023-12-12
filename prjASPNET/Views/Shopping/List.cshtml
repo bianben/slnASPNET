@@ -4,7 +4,7 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>購物</h2>
 
 <p>
     @Html.ActionLink("檢視購物車", "CartView")
@@ -38,6 +38,7 @@
         </td>
         <td>
             <img src="~/Images/@item.fImagePath" width="300" height="200"/>
+            <br />
             @Html.DisplayFor(modelItem => item.fName)
         </td>
         <td>
